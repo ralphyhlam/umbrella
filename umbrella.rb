@@ -36,3 +36,34 @@ next_hour_data = next_hour.fetch("data")
 next_hour_point = next_hour_data[0]
 next_hour_summary = next_hour_point.fetch("summary")
 pp next_hour_summary
+
+#check precipitation loop
+#need to retrieve 0-11 of index, then pull data from there
+counter = 0
+precipitation = next_hour_data[counter]
+hour_counter = counter + 1
+
+while counter < 12
+    precipitation_point = precipitation.fetch("precipProbability")
+    if precipitation_point > 0.1
+        pp "The preicipitation probability will be #{precipitation} in #{hour_counter} hour(s)"
+        pp "You might want to bring an umbrella"
+    else
+        pp "You probably won't need an umbrella"
+    end
+    counter = counter + 1
+end
+
+
+#next_hour_data.each do |hour|
+   # precipitation = hour.fetch("precipProbability")
+   # if precipitation > 0.1
+    #    counter = counter + 1
+    #     pp "The preicipitation probability will be #{precipitation} in #{counter} hour(s)"
+    #     pp "You might want to bring an umbrella"
+    #else
+    #     pp "You probably won't need an umbrella"
+    #end
+#end
+
+     
